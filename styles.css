@@ -203,7 +203,13 @@ h4 {
     cursor: pointer;
     transition: all 0.3s;
   }
+  img {
+    transition: filter 0.5s;
+  }
   
+  .lazy-img {
+    filter: blur(20px);
+  }
   
   .features{
       display: grid;
