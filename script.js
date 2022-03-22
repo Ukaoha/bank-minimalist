@@ -191,48 +191,100 @@ const allSections = document.querySelectorAll(".section");
 const revelSection = function (entries, observer) {
   const [entry] = entries;
   console.log(entry);
-  if(!entry.isIntersecting) return;
+  if (!entry.isIntersecting) return;
 
- entry.target.classList.remove('section--hidden');
- observer.unobserve(entry.target)
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
 };
-const sectionObserver = new IntersectionObserver(
-  revelSection,{
-    root: null,
-    threshold: 0.15,
-  });
+const sectionObserver = new IntersectionObserver(revelSection, {
+  root: null,
+  threshold: 0.15,
+});
 
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
-  section.classList.add(".section--hidden");
+  // section.classList.add(".section--hidden");
 });
 
-// lazy loading images 
-const imgTargets =  document.querySelectorAll('img[data-src]');
-const loadImg = function(entries, observer){
+// lazy loading images
+const imgTargets = document.querySelectorAll("img[data-src]");
+const loadImg = function (entries, observer) {
   const [entry] = entries;
-  if(!entry.isIntersecting) return; 
+  if (!entry.isIntersecting) return;
   entry.target.src = entry.target.dataset.src;
-  
-  entry.target.addEventListener('load', function() {
-    entry.target.classList.remove('lazy-img')
-  })
-  observer.unobserve(entry.target)
+
+  entry.target.addEventListener("load", function () {
+    entry.target.classList.remove("lazy-img");
+  });
+  observer.unobserve(entry.target);
 };
 
-const imgObserver = new IntersectionObserver( loadImg,
-   {
-  root: null , 
-  threshold: 0 ,
-  rootMargin: '200px'
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: "200px",
+});
 
+imgTargets.forEach((img) => imgObserver.observe(img));
+
+// slider
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const btnLeft = document.querySelector(".slider__btn--left");
+const btnRight = document.querySelector(".slider__btn--right");
+const maxSlide = slides.length;
+const dotContainer = document.querySelector(".dots");
+
+const createDots = function () {
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      "beforeend",
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+};
+createDots();
+// const slider = document.querySelector('.slider')
+// slider.style.transform = 'scale(0.5) translateX(-800px)'
+// slider.style.overflow = 'visible'
+
+const goToSlide = function (slide) {
+  slides.forEach(
+    (s, i) => (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+  );
+};
+goToSlide(0);
+
+const nextSlide = function () {
+  if (currentSlide === maxSlide - 1) {
+    currentSlide = 0;
+  } else {
+    currentSlide++;
+  }
+  goToSlide();
+};
+const previousSlide = function () {
+  if (currentSlide === 0) {
+    currentSlide = maxSlide - 1;
+  } else {
+    currentSlide--;
+  }
+
+  goToSlide(currentSlide);
+};
+
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", nextSlide);
+
+document.addEventListener("keydown", function (e) {
+  console.log(e);
+  if (e.key === "ArrowLeft") previousSlide();
+});
+
+dotContainer.addEventListener('click', function(e) {
+if(e.target.classList.contains('dots__dot')) {
+console.log('dot');
+const {slide} = e.target.dataset;
+goToSlide(slide)
+}
 })
-
-imgTargets.forEach(img => imgObserver.observe(img))
-
-// slider 
-const slides = document.querySelectorAll()
-
-
-
-
