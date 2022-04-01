@@ -4,35 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bank minimalist</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://kit.fontawesome.com/9deb23faa3.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
       rel="stylesheet"
     />
     <link rel="shortcut icon" type="image/png" href="img/icon.png" />
+    <title>Bank minimalist</title>
+    <script defer src="script.js"></script>
   </head>
   <body>
     <header class="header">
-      <nav class="nav">
-        <img src="img/logo.png" alt="logo" id="logo" class="nav-logo" />
-        <ul class="nav__links">
-          <li class="nav-item">
-            <a class="nav__link" href="#features">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav__link" href="#operations">Operation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav__link" href="#testimonals">Testimonals</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav__link nav__link--btn btn--show-modal" href="#"
-              >Open Account</a
-            >
-          </li>
-        </ul>
-      </nav>
+        
+        <nav class="nav">
+          <a href="#"><img src="img/logo.png" alt="logo" id="logo" class="nav-logo" /></a>
+          <ul class="nav__links">
+            <li class="nav-item">
+              <a class="nav__link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav__link" href="#operations">Operation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav__link" href="#testimonals">Testimonals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav__link nav__link--btn btn--show-modal" href="#"
+                >Open Account</a
+              >
+            </li>
+          </ul>
+          <div class="hamburger">
+            <i class="fas fa-bars" id="btn"></i>
+          </div>
+        </nav>
+
+
+
+
       <div class="header-title">
         <h1>
           When <span class="green-high">banking</span> meets<br />
@@ -45,22 +59,24 @@
           class="header_img"
           alt="Minimalist bank items"
         />
-      </div>
+      </div> 
     </header>
-
-    <section id="features" class="section">
+<!-- Features section -->
+    <section id="features" class="section"> 
       <div class="section-title">
         <h2 class="section-description">Features</h2>
-        <h3 class="sub-section">Everything you need in modern bank and more</h3>
+        <h4 class="sub-section">Everything you need in modern bank and more</h4>
       </div>
       <div class="features">
-        <img
+         <img 
           class="feature-img lazy-img"
           src="img/digital-lazy.jpg"
           data-src="img/digital.jpg"
           alt="computer"
-        />
+         /> 
         <div class="features__feature">
+          
+
           <div class="features__icon">
             <svg>
               <use xlink:href="img/icons.svg#icon-monitor"></use>
@@ -115,6 +131,7 @@
         </div>
       </div>
     </section>
+    <!-- operations section -->
 
     <section class="section" id="operations">
       <div class="section-title">
@@ -330,7 +347,5 @@
       </form>
     </div>
     <div class="overlay hidden"></div>
-
-    <script src="script.js"></script>
   </body>
 </html>
