@@ -16,6 +16,7 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  
 }
 
 html {
@@ -33,6 +34,7 @@ body {
 .nav__link--btn{
     display: inline-block;
     background-color: var(--color-primary);
+    outline: none;
     font-size: 1.6rem;
     font-family: inherit;
     font-weight: 500;
@@ -117,16 +119,18 @@ z-index: 100;
 
 @media only screen and (max-width: 768px){
   .nav{
-    border-bottom:  1px solid;
+    border-bottom:  1px solid #f3f3f3;
+    /* background-color: red; */
   }
 
   .nav__links{ 
     position: fixed;
     left: -100%;
-    top: 5rem;
+    top: 8rem;
     flex-direction: column;
     width: 100%;
     border-radius: 10px;
+    background-color: #f3f3f3;
     
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
@@ -166,7 +170,7 @@ z-index: 100;
     flex: 1;
     max-width: 115rem;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     row-gap: 3rem;
     align-content: center;
     justify-content: center;
@@ -181,6 +185,7 @@ z-index: 100;
   
   .header_img {
     /* display: none; */
+  
   
     
   }
@@ -217,6 +222,7 @@ z-index: 100;
   flex-direction: column;
   padding: 0 3rem;
   height: 100vh;
+  /* width: 100%; */
 }
 .header-title {
   flex: 1;
@@ -278,7 +284,7 @@ h4 {
 }
  
 .section {
-    padding: 15rem 1rem;
+    padding: 10rem 1rem;
     border-top: 1px solid #ddd;
     transition: transform 1s, opacity 1s;
   }
@@ -482,6 +488,7 @@ h4 {
     operations__tab {
       margin-right: 2.5rem;
       transform: translateY(-50%);
+      outline: none;
     }
     
     .operations__tab span {
@@ -521,6 +528,20 @@ h4 {
     .operations__content--active {
       column-gap: 1rem;
       
+    }
+
+    .section-description {
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+    
+    .sub-section {
+      font-size: 2.5rem;
+      line-height: 1;
+      font-weight: 500;
     }
   
   
@@ -564,6 +585,7 @@ h4 {
     position: absolute;
     top: 50%;
     z-index: 10;
+    outline: none;
   
     border: none;
     background: rgba(255, 255, 255, 0.7);
@@ -621,8 +643,11 @@ h4 {
     /* /* Media queries for slides  */
     @media screen and (max-width :600px) {
       .slider{
-        height: 30rem;
+        overflow-y: scroll;
+      
+        
       }
+  
     }
   
   /* TESTIMONIALS */
@@ -684,6 +709,14 @@ h4 {
   .section__title--testimonials {
     margin-bottom: 4rem;
   }
+  /* testimonial media qurey */
+  @media screen and (max-width :600px) {
+
+    .testimonial__header{
+
+    }
+  }
+
 
   .section--sign-up {
     background-color: #37383d;
@@ -708,6 +741,7 @@ h4 {
     font-size: 1.9rem;
     padding: 2rem 5rem;
   }
+  
   
   /* FOOTER */
 .footer {
@@ -799,6 +833,7 @@ h4 {
   padding: 1rem 1.5rem;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
+  outline: none;
 }
 
 .modal__form button {
@@ -823,13 +858,38 @@ h4 {
   visibility: hidden;
   opacity: 0;
 }
+@media screen and (max-width :600px) {
+  .modal{
+    padding: 2rem 2.8rem;
+    
+    width: 35rem;
+  }
+  .modal__header {
+    font-size: 2rem;
+    margin-bottom: 4.5rem;
+    line-height: 1.5;
+  }
+  
+.modal__form {
+  margin: 0 2rem;
+  gap: 1rem;
+}
+.modal__form input {
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+
+  
+}
 
 /* COOKIE MESSAGE */
 .cookie-message {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 100%;
+  width: 100vw;
   background-color: white;
   color: #bbb;
   font-size: 1.75rem;

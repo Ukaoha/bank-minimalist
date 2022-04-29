@@ -44,10 +44,10 @@ document
     message.remove();
   });
 message.style.backgroundColor = "#37383d";
-message.style.width = "105%";
+message.style.width = "";
 console.log(getComputedStyle(message).height);
 message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + "px";
+  Number.parseFloat(getComputedStyle(message).height, 10) + 15 + "px";
 
 /*changing root element
 document.documentElement.style.setProperty('--color-primary' , 'orange') */
